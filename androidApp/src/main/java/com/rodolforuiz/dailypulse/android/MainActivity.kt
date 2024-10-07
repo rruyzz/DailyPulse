@@ -16,14 +16,15 @@ import com.rodolforuiz.dailypulse.articles.ArticlesViewModel
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModel: ArticlesViewModel by viewModels()
+        val articlesViewModel: ArticlesViewModel by viewModels()
+
         setContent {
             MyApplicationTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    AppScaffold(articlesViewModel = viewModel)
+                    AppScaffold(articlesViewModel = articlesViewModel)
                 }
             }
         }
