@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.touchlab.skie)
     kotlin("plugin.serialization") version "1.9.20"
+    alias(libs.plugins.sqlDelight)
 }
 
 kotlin {
@@ -21,7 +22,6 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
-            isStatic = true
         }
     }
     iosArm64()
@@ -34,6 +34,17 @@ kotlin {
 //        commonTest.dependencies {
 //            implementation(libs.kotlin.test)
 //        }
+        sourceSets {
+            val iosX64Main by getting
+            val iosArm64Main by getting
+            val iosSimulatorArm64Main by getting
+            val iosMain by creating {
+                dependsOn(commonMain.get())
+                iosX64Main.dependsOn(this)
+                iosArm64Main.dependsOn(this)
+                iosSimulatorArm64Main.dependsOn(this)
+            }
+        }
 
         val commonMain by getting {
             dependencies {
@@ -43,6 +54,7 @@ kotlin {
                 implementation(libs.ktor.serialization.kotlinx.json)
                 implementation(libs.kotlinx.datetime)
                 implementation(libs.koin.core)
+                implementation(libs.sql.coroutines.extensions)
             }
         }
 
@@ -50,28 +62,16 @@ kotlin {
             dependencies {
                 implementation(libs.androidx.lifecycle.viewmodel.ktx)
                 implementation(libs.ktor.client.android)
+                implementation(libs.sql.android.driver)
+            }
+        }
+        val iosMain by getting {
+            dependencies {
+                implementation(libs.ktor.client.darwin)
+                implementation(libs.sql.native.driver)
             }
         }
 
-        val iosArm64Main by getting {
-            dependencies {
-                implementation(libs.ktor.client.darwin)
-            }
-        }
-        val iosArm64Test by getting {
-            dependencies {
-            }
-        }
-        val iosX64Main by getting {
-            dependencies {
-                implementation(libs.ktor.client.darwin)
-            }
-        }
-        val iosSimulatorArm64Main by getting {
-            dependencies {
-                implementation(libs.ktor.client.darwin)
-            }
-        }
         val commonTest by getting {
             dependencies {
                 implementation(libs.kotlin.test)
@@ -89,5 +89,15 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+
+
+sqldelight {
+    databases {
+        create(name = "DailyPulseDatabase") {
+            packageName.set("rodolforuiz.dailypulse.db")
+        }
     }
 }
