@@ -12,7 +12,6 @@ import androidx.navigation.compose.rememberNavController
 import com.rodolforuiz.dailypulse.android.screens.AboutScreen
 import com.rodolforuiz.dailypulse.android.screens.ArticlesScreen
 import com.rodolforuiz.dailypulse.android.screens.Screens
-import com.rodolforuiz.dailypulse.articles.ArticlesViewModel
 
 @Composable
 fun AppScaffold() {

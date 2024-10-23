@@ -29,8 +29,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.rodolforuiz.dailypulse.articles.Article
-import com.rodolforuiz.dailypulse.articles.ArticlesViewModel
+import com.rodolforuiz.dailypulse.articles.domain.Article
+import com.rodolforuiz.dailypulse.articles.presentation.ArticlesViewModel
 import coil.compose.AsyncImage
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshState

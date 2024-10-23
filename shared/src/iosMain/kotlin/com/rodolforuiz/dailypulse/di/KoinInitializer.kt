@@ -1,6 +1,6 @@
 package com.rodolforuiz.dailypulse.di
 
-import com.rodolforuiz.dailypulse.articles.ArticlesViewModel
+import com.rodolforuiz.dailypulse.articles.presentation.ArticlesViewModel
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.context.startKoin

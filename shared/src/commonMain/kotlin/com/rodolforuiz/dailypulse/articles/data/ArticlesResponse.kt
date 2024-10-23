@@ -1,5 +1,6 @@
-package com.rodolforuiz.dailypulse.articles
+package com.rodolforuiz.dailypulse.articles.data
 
+import com.rodolforuiz.dailypulse.articles.data.ArticleRaw
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

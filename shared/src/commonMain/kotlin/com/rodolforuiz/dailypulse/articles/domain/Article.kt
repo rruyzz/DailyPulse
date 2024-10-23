@@ -1,4 +1,4 @@
-package com.rodolforuiz.dailypulse.articles
+package com.rodolforuiz.dailypulse.articles.domain
 
 class Article(
     val title: String,

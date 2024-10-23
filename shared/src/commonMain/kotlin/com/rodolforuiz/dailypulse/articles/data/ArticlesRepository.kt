@@ -1,4 +1,4 @@
-package com.rodolforuiz.dailypulse.articles
+package com.rodolforuiz.dailypulse.articles.data
 
 
 class ArticlesRepository(

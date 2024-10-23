@@ -1,4 +1,4 @@
-package com.rodolforuiz.dailypulse.articles
+package com.rodolforuiz.dailypulse.articles.data
 
 import rodolforuiz.dailypulse.db.DailyPulseDatabase
 

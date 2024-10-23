@@ -1,5 +1,7 @@
-package com.rodolforuiz.dailypulse.articles
+package com.rodolforuiz.dailypulse.articles.data
 
+import com.rodolforuiz.dailypulse.articles.data.ArticleRaw
+import com.rodolforuiz.dailypulse.articles.data.ArticlesResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
