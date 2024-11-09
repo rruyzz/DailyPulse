@@ -50,6 +50,9 @@ fun ArticlesScreen(
             ErrorMessage(articlesState.value.error!!)
         if (articlesState.value.articles.isNotEmpty())
             ArticlesListView(articlesViewModel)
+        if (articlesState.value.loading) {
+            Loader()
+        }
     }
 }
 
